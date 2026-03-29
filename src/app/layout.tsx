@@ -53,6 +53,47 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} scroll-smooth`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  name: "The Riverroute LLP",
+                  url: "https://theriverroute.com",
+                  description:
+                    "Purpose-built technology for India's Media and Entertainment industry.",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Mumbai",
+                    addressCountry: "IN",
+                  },
+                  founder: [
+                    {
+                      "@type": "Person",
+                      name: "Varun Hemraj Khandelwal",
+                      jobTitle: "Co-Founder",
+                    },
+                    {
+                      "@type": "Person",
+                      name: "Ria Bhavsar",
+                      jobTitle: "Co-Founder",
+                    },
+                  ],
+                },
+                {
+                  "@type": "WebPage",
+                  name: "The Riverroute",
+                  url: "https://theriverroute.com",
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className="font-body text-dark antialiased">{children}</body>
     </html>
   );
