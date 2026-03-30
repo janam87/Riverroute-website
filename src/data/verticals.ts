@@ -2,7 +2,7 @@ export interface Vertical {
   name: string;
   size: string;
   source: string;
-  icon: string;
+  iconName: string;
 }
 
 export const verticals: Vertical[] = [
@@ -10,48 +10,48 @@ export const verticals: Vertical[] = [
     name: "Film & Theatrical",
     size: "₹19,750 Cr",
     source: "FICCI-EY 2024",
-    icon: "🎬",
+    iconName: "movie",
   },
   {
     name: "OTT Platforms",
     size: "₹23,900 Cr",
     source: "PwC India 2024",
-    icon: "📺",
+    iconName: "device-tv",
   },
   {
     name: "Television",
     size: "₹70,600 Cr",
     source: "FICCI-EY 2024",
-    icon: "📡",
+    iconName: "antenna",
   },
   {
     name: "Music",
     size: "₹5,300 Cr",
     source: "IBEF 2025",
-    icon: "🎵",
+    iconName: "music",
   },
   {
     name: "Live Events",
     size: "₹12,000 Cr",
     source: "FICCI-EY 2024",
-    icon: "🎪",
+    iconName: "ticket",
   },
   {
     name: "Animation & VFX",
     size: "US$2.2B",
     source: "IBEF 2025",
-    icon: "🎨",
+    iconName: "wand",
   },
   {
     name: "Online Gaming",
     size: "₹25,500 Cr",
     source: "PwC India 2024",
-    icon: "🎮",
+    iconName: "device-gamepad-2",
   },
   {
     name: "Digital Media",
     size: "₹63,000 Cr",
     source: "FICCI-EY 2024",
-    icon: "📱",
+    iconName: "world-www",
   },
 ];

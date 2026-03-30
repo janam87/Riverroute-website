@@ -41,41 +41,44 @@ export const FloatingNav = ({
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
+        initial={{ opacity: 1, y: -100 }}
+        animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto z-[5000] items-center justify-center",
+          "flex max-w-fit fixed top-6 inset-x-0 mx-auto z-[5000] items-center justify-center",
           className
         )}
       >
-        <div className="flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/80 px-2 py-1.5 shadow-lg shadow-black/10 backdrop-blur-md dark:border-white/10 dark:bg-black/50">
-          <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 rounded-full border border-navy/10 bg-white/90 px-1.5 py-1.5 shadow-xl shadow-black/[0.08] backdrop-blur-xl">
+          {/* Logo */}
+          <div className="flex items-center px-3">
+            <span className="font-display text-sm font-bold text-navy">
+              TR
+            </span>
+          </div>
+
+          <div className="h-4 w-px bg-navy/10" />
+
+          {/* Nav links */}
+          <div className="flex items-center">
             {navItems.map((navItem, idx: number) => (
               <a
                 key={`link-${idx}`}
                 href={navItem.link}
-                className={cn(
-                  "relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white"
-                )}
+                className="relative rounded-full px-3.5 py-2 font-body text-[13px] font-medium text-navy/50 transition-colors hover:bg-navy/[0.04] hover:text-navy"
               >
                 <span className="block sm:hidden">{navItem.icon}</span>
                 <span className="hidden sm:block">{navItem.name}</span>
               </a>
             ))}
           </div>
-          <div className="h-5 w-px bg-neutral-200 dark:bg-white/10" />
+
+          <div className="h-4 w-px bg-navy/10" />
+
+          {/* CTA */}
           <a
             href="#contact"
-            className="relative rounded-full bg-gold px-4 py-2 text-sm font-semibold text-navy transition-all hover:scale-[1.03] hover:shadow-lg"
+            className="rounded-full bg-navy px-4 py-2 font-body text-[13px] font-semibold text-white transition-all hover:bg-navy/90"
           >
             Talk to Us
           </a>

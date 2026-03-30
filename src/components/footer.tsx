@@ -11,58 +11,66 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy py-16 px-6">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          <div className="text-center md:text-left">
+    <footer className="bg-navy">
+      <div className="mx-auto max-w-6xl px-6 py-16">
+        <div className="grid gap-10 md:grid-cols-3 md:items-start">
+          {/* Logo & Tagline */}
+          <div>
             <p className="font-display text-xl font-bold text-white">
               The Riverroute
             </p>
-            <p className="mt-1 font-body text-sm text-white/50">
+            <p className="mt-2 font-body text-sm text-white/40 leading-relaxed max-w-xs">
               Built by the industry. For the industry.
             </p>
           </div>
 
-          <nav className="flex flex-wrap justify-center gap-6">
+          {/* Links */}
+          <nav className="flex flex-wrap gap-x-8 gap-y-3 md:justify-center">
             {footerLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="font-body text-sm text-white/60 hover:text-gold transition-colors"
+                className="font-body text-sm text-white/40 hover:text-gold transition-colors"
               >
                 {link.name}
               </a>
             ))}
           </nav>
 
-          <a
-            href="https://www.linkedin.com/company/theriverroute"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="The Riverroute on LinkedIn"
-            className="text-white/60 hover:text-gold transition-colors"
-          >
-            <IconBrandLinkedin className="h-6 w-6" />
-          </a>
+          {/* Social */}
+          <div className="flex items-center gap-4 md:justify-end">
+            <a
+              href="https://www.linkedin.com/company/theriverroute"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="The Riverroute on LinkedIn"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 hover:border-gold/30 hover:text-gold transition-all"
+            >
+              <IconBrandLinkedin className="h-5 w-5" />
+            </a>
+          </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4 border-t border-white/10 pt-8 md:flex-row md:justify-between">
-          <div className="flex gap-4">
+        {/* Bottom */}
+        <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/[0.06] pt-8 md:flex-row md:justify-between">
+          <div className="flex gap-6">
             <a
               href="#"
-              className="font-body text-xs text-white/40 hover:text-white/60 transition-colors"
+              className="font-body text-xs text-white/25 hover:text-white/40 transition-colors"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="font-body text-xs text-white/40 hover:text-white/60 transition-colors"
+              className="font-body text-xs text-white/25 hover:text-white/40 transition-colors"
             >
               Terms
             </a>
           </div>
-          <p className="font-body text-xs text-white/40">Mumbai, India</p>
-          <p className="font-body text-xs text-white/40">
+          <p className="font-body text-xs text-white/25">
+            Mumbai, India
+          </p>
+          <p className="font-body text-xs text-white/25">
             &copy; 2026 The Riverroute LLP
           </p>
         </div>
