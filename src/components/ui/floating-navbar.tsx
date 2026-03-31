@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import {
   motion,
@@ -15,7 +16,6 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
   }[];
   className?: string;
 }) => {
@@ -49,15 +49,15 @@ export const FloatingNav = ({
           className
         )}
       >
-        <div className="flex items-center gap-1 rounded-full border border-navy/10 bg-white/90 px-1.5 py-1.5 shadow-xl shadow-black/[0.08] backdrop-blur-xl">
+        <div className="glass-strong flex items-center gap-1 px-2 py-2">
           {/* Logo */}
-          <div className="flex items-center px-3">
-            <span className="font-display text-sm font-bold text-navy">
-              TR
+          <div className="flex items-center px-4">
+            <span className="font-display text-sm font-bold text-white">
+              the riverroute
             </span>
           </div>
 
-          <div className="h-4 w-px bg-navy/10" />
+          <div className="h-4 w-px bg-white/10" />
 
           {/* Nav links */}
           <div className="flex items-center">
@@ -65,22 +65,21 @@ export const FloatingNav = ({
               <a
                 key={`link-${idx}`}
                 href={navItem.link}
-                className="relative rounded-full px-3.5 py-2 font-body text-[13px] font-medium text-navy/50 transition-colors hover:bg-navy/[0.04] hover:text-navy"
+                className="rounded-full px-3.5 py-2 font-body text-[13px] font-medium text-white/50 transition-colors hover:text-white"
               >
-                <span className="block sm:hidden">{navItem.icon}</span>
-                <span className="hidden sm:block">{navItem.name}</span>
+                {navItem.name}
               </a>
             ))}
           </div>
 
-          <div className="h-4 w-px bg-navy/10" />
+          <div className="h-4 w-px bg-white/10" />
 
           {/* CTA */}
           <a
-            href="#contact"
-            className="rounded-full bg-navy px-4 py-2 font-body text-[13px] font-semibold text-white transition-all hover:bg-navy/90"
+            href="#footer"
+            className="rounded-full bg-white/10 border border-white/15 px-4 py-2 font-body text-[13px] font-medium text-white transition-all hover:bg-white/15"
           >
-            Talk to Us
+            Join Waitlist
           </a>
         </div>
       </motion.div>
