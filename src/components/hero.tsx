@@ -36,8 +36,7 @@ export function Hero() {
           }}
           poster=""
         >
-          {/* Video source — replace with actual video when available */}
-          {/* <source src="/video/hero.mp4" type="video/mp4" /> */}
+          <source src="/video/hero.mp4" type="video/mp4" />
         </video>
 
         {/* Fallback gradient when no video */}

@@ -20,19 +20,19 @@ export const FloatingNav = ({
   className?: string;
 }) => {
   const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
       const direction = current - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
+        setHidden(false);
       } else {
         if (direction < 0) {
-          setVisible(true);
+          setHidden(false);
         } else {
-          setVisible(false);
+          setHidden(true);
         }
       }
     }
@@ -41,9 +41,9 @@ export const FloatingNav = ({
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{ opacity: 1, y: -100 }}
-        animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ y: hidden ? -100 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
         className={cn(
           "flex max-w-fit fixed top-6 inset-x-0 mx-auto z-[5000] items-center justify-center",
           className
