@@ -43,8 +43,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-black to-[#111]" />
       </motion.div>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+      {/* Dark overlay — heavy so text stays readable */}
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
 
       {/* Content */}
       <motion.div
