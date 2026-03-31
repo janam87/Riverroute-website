@@ -4,9 +4,9 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
-const headline = "software for india's storytellers.";
+const headline = "built by the industry. for the industry.";
 const subtext =
-  "the tools behind the scenes of a ₹2.5 lakh crore industry. built by people who've lived it.";
+  "India's M&E industry is one of the largest in the world. The people who run it deserve software that actually understands them.";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);

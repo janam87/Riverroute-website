@@ -16,9 +16,12 @@ export function Founders() {
       <div className="mx-auto max-w-5xl">
         <SectionReveal>
           <ParallaxElement speed={0.7}>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-16">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
               the people.
             </h2>
+            <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
+              Founded by two professionals with over three decades inside Indian film and television. This is not a pivot. It is a culmination.
+            </p>
           </ParallaxElement>
         </SectionReveal>
 
@@ -35,25 +38,33 @@ export function Founders() {
               transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.15 }}
             >
               <ParallaxElement speed={0.8}>
-                <GlassCard variant="strong" className="p-6 text-center">
+                <GlassCard variant="strong" className="p-6">
                   {/* Photo placeholder */}
-                  <div className="mx-auto mb-6 aspect-[3/4] max-w-[240px] overflow-hidden rounded-xl bg-white/[0.02]">
+                  <div className="mx-auto mb-6 aspect-[3/4] max-w-[200px] overflow-hidden rounded-xl bg-white/[0.02]">
                     <div className="h-full w-full bg-gradient-to-b from-white/[0.03] to-transparent transition-transform duration-300 hover:scale-[1.03]" />
                   </div>
 
-                  <h3 className="font-display text-2xl font-bold text-white">
-                    {founder.name}
-                  </h3>
-                  <p className="mt-2 font-body text-sm text-muted">
-                    {founder.role}
+                  <div className="text-center">
+                    <h3 className="font-display text-2xl font-bold text-white">
+                      {founder.fullName}
+                    </h3>
+                    <p className="mt-1 font-body text-sm text-white/40">
+                      {founder.title} · {founder.role}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 h-px w-full bg-white/[0.06]" />
+
+                  <p className="mt-4 font-body text-sm text-white/40 leading-[1.7]">
+                    {founder.bio}
                   </p>
 
                   {/* Credentials */}
-                  <div className="mt-4 flex flex-wrap justify-center gap-2">
+                  <div className="mt-4 flex flex-wrap gap-2">
                     {founder.credentials.map((cred) => (
                       <span
                         key={cred}
-                        className="font-body text-[11px] text-white/20"
+                        className="font-body text-[11px] text-white/20 border border-white/[0.06] rounded-full px-3 py-1"
                       >
                         {cred}
                       </span>
