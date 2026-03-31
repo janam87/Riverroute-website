@@ -1,79 +1,58 @@
-import { IconBrandLinkedin } from "@tabler/icons-react";
+"use client";
 
-const footerLinks = [
-  { name: "Home", href: "#hero" },
-  { name: "Industry", href: "#industry" },
-  { name: "What We're Building", href: "#building" },
-  { name: "Who We Serve", href: "#who-we-serve" },
-  { name: "Founders", href: "#founders" },
-  { name: "Careers", href: "/careers" },
-];
+import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
+import { WaitlistForm } from "@/components/waitlist-form";
 
 export function Footer() {
   return (
-    <footer className="bg-navy">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-3 md:items-start">
-          {/* Logo & Tagline */}
-          <div>
-            <p className="font-display text-xl font-bold text-white">
-              The Riverroute
+    <footer id="footer" className="relative bg-black px-6 pt-32 pb-12 md:px-16 lg:px-24">
+      <div className="mx-auto max-w-5xl">
+        {/* CTA */}
+        <SectionReveal>
+          <div className="text-center mb-24">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
+              get early access.
+            </h2>
+            <p className="font-body text-sm text-muted mb-10">
+              join the waitlist. we&apos;ll reach out when it&apos;s your turn.
             </p>
-            <p className="mt-2 font-body text-sm text-white/40 leading-relaxed max-w-xs">
-              Built by the industry. For the industry.
-            </p>
+            <div className="flex justify-center">
+              <WaitlistForm />
+            </div>
           </div>
+        </SectionReveal>
 
-          {/* Links */}
-          <nav className="flex flex-wrap gap-x-8 gap-y-3 md:justify-center">
-            {footerLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="font-body text-sm text-white/40 hover:text-gold transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* Social */}
-          <div className="flex items-center gap-4 md:justify-end">
-            <a
-              href="https://www.linkedin.com/company/theriverroute"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="The Riverroute on LinkedIn"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/40 hover:border-gold/30 hover:text-gold transition-all"
-            >
-              <IconBrandLinkedin className="h-5 w-5" />
-            </a>
-          </div>
-        </div>
+        {/* Divider */}
+        <div className="h-px bg-white/[0.06] mb-12" />
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/[0.06] pt-8 md:flex-row md:justify-between">
-          <div className="flex gap-6">
-            <a
-              href="#"
-              className="font-body text-xs text-white/25 hover:text-white/40 transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="font-body text-xs text-white/25 hover:text-white/40 transition-colors"
-            >
-              Terms
-            </a>
+        <SectionRevealChild index={0}>
+          <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+            <span className="font-display text-sm font-bold text-white/40">
+              the riverroute
+            </span>
+
+            <div className="flex gap-8 font-body text-xs text-white/30">
+              <a
+                href="https://www.linkedin.com/company/theriverroute"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-white/60"
+              >
+                LinkedIn
+              </a>
+              <a href="/careers" className="transition-colors hover:text-white/60">
+                Careers
+              </a>
+              <span>Privacy</span>
+              <span>Terms</span>
+            </div>
+
+            <span className="font-body text-xs text-white/20">
+              &copy; {new Date().getFullYear()} The Riverroute LLP
+            </span>
           </div>
-          <p className="font-body text-xs text-white/25">
-            Mumbai, India
-          </p>
-          <p className="font-body text-xs text-white/25">
-            &copy; 2026 The Riverroute LLP
-          </p>
-        </div>
+        </SectionRevealChild>
       </div>
     </footer>
   );
