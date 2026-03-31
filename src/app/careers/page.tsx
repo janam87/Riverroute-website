@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { jobs } from "@/data/jobs";
-import { IconBrandLinkedin, IconMail } from "@tabler/icons-react";
+
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -120,7 +120,6 @@ export default function CareersPage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-2 font-body text-sm font-semibold text-navy transition-all duration-150 hover:scale-[1.03] hover:shadow-lg"
                       >
-                        <IconBrandLinkedin className="h-4 w-4" />
                         Apply on LinkedIn
                       </a>
                     </div>
@@ -140,7 +139,6 @@ export default function CareersPage() {
                   href="mailto:hello@theriverroute.com"
                   className="mt-4 inline-flex items-center gap-2 font-body text-sm text-gold hover:text-gold/80 transition-colors"
                 >
-                  <IconMail className="h-4 w-4" />
                   hello@theriverroute.com
                 </a>
               </div>
