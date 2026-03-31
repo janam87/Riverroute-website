@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -17,47 +16,34 @@ export const TextGenerateEffect = ({
   duration?: number;
   staggerDelay?: number;
 }) => {
-  const [scope, animate] = useAnimate();
   const wordsArray = words.split(" ");
-
-  useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration,
-        delay: stagger(staggerDelay),
-      }
-    );
-  }, [scope.current]);
-
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
-              key={word + idx}
-              className="opacity-0"
-              style={{
-                filter: filter ? "blur(8px)" : "none",
-              }}
-            >
-              {word}{" "}
-            </motion.span>
-          );
-        })}
-      </motion.div>
-    );
-  };
 
   return (
     <div className={cn("font-bold", className)}>
       <div className="leading-snug tracking-wide">
-        {renderWords()}
+        <div>
+          {wordsArray.map((word, idx) => (
+            <motion.span
+              key={word + idx}
+              initial={{
+                opacity: 0,
+                filter: filter ? "blur(8px)" : "none",
+              }}
+              animate={{
+                opacity: 1,
+                filter: filter ? "blur(0px)" : "none",
+              }}
+              transition={{
+                duration: duration,
+                delay: idx * staggerDelay,
+                ease: "easeOut",
+              }}
+              className="inline-block"
+            >
+              {word}&nbsp;
+            </motion.span>
+          ))}
+        </div>
       </div>
     </div>
   );

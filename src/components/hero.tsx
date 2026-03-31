@@ -20,6 +20,9 @@ export function Hero() {
 
   return (
     <section ref={ref} id="hero" className="relative h-screen overflow-hidden bg-black">
+      {/* Fallback gradient — behind video */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-black to-[#111]" />
+
       {/* Background video */}
       <motion.div
         style={{ y: videoY }}
@@ -30,22 +33,15 @@ export function Hero() {
           muted
           loop
           playsInline
-          className="h-full w-full object-cover opacity-0 transition-opacity duration-1000"
-          onLoadedData={(e) => {
-            (e.target as HTMLVideoElement).classList.replace("opacity-0", "opacity-100");
-          }}
-          poster=""
+          className="h-full w-full object-cover"
         >
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
-
-        {/* Fallback gradient when no video */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-black to-[#111]" />
       </motion.div>
 
-      {/* Dark overlay — heavy so text stays readable */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
 
       {/* Content */}
       <motion.div
@@ -63,7 +59,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="mt-8 max-w-lg font-body text-base text-[#444] md:text-lg leading-relaxed"
+          className="mt-8 max-w-lg font-body text-base text-white/50 md:text-lg leading-relaxed"
         >
           {subtext}
         </motion.p>
@@ -84,7 +80,6 @@ export function Hero() {
           <span className="font-body text-[10px] uppercase tracking-widest text-white/20">
             Scroll
           </span>
-          {/* CSS chevron — no icon library */}
           <div className="w-4 h-4 border-b border-r border-white/20 rotate-45 -mt-1" />
         </motion.div>
       </motion.div>
