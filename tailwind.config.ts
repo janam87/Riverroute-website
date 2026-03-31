@@ -10,27 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        navy: "#1B2A4A",
-        gold: "#C9973A",
-        "off-white": "#F8F6F1",
-        "light-grey": "#F5F5F5",
-        dark: "#1A1A1A",
-        "mid-grey": "#444444",
+        background: "#000000",
+        foreground: "#ffffff",
+        muted: "#444444",
+        "muted-light": "#666666",
+        subtle: "#1a1a1a",
+        "subtle-border": "#151515",
       },
       fontFamily: {
         display: ["var(--font-display)", "Playfair Display", "serif"],
         body: ["var(--font-body)", "Inter", "sans-serif"],
-      },
-      animation: {
-        aurora: "aurora 60s linear infinite",
-      },
-      keyframes: {
-        aurora: {
-          from: { backgroundPosition: "50% 50%, 50% 50%" },
-          to: { backgroundPosition: "350% 50%, 350% 50%" },
-        },
       },
     },
   },

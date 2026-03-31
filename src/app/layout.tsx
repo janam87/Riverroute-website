@@ -94,7 +94,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-body text-dark antialiased">{children}</body>
+      <body className="font-body text-foreground antialiased bg-background">{children}</body>
     </html>
   );
 }
