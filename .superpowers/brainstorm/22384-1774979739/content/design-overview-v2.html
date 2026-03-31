@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; color: #fff; font-family: -apple-system, sans-serif; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+  h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 48px; font-weight: 700; letter-spacing: -2px; line-height: 1.05; margin-bottom: 8px; }
+  h2 { font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 12px; margin-top: 60px; }
+  h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: #555; margin-bottom: 20px; font-weight: 400; }
+
+  .subtitle { color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 48px; max-width: 500px; }
+
+  .divider { height: 1px; background: #1a1a1a; margin: 48px 0; }
+
+  .section-demo { background: #0a0a0a; border: 1px solid #151515; border-radius: 12px; padding: 40px 32px; margin: 20px 0; overflow: hidden; }
+
+  .hero-demo { text-align: left; min-height: 340px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+  .hero-demo h2 { font-size: 52px; letter-spacing: -2.5px; margin-top: 0; margin-bottom: 16px; position: relative; z-index: 2; }
+  .hero-demo p { color: #444; font-size: 16px; line-height: 1.6; max-width: 400px; position: relative; z-index: 2; }
+  .hero-video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.8) 100%); z-index: 1; border-radius: 12px; }
+  .hero-video-placeholder { position: absolute; inset: 0; background: linear-gradient(135deg, #111 0%, #0a0a0a 50%, #151515 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+  .hero-video-label { color: #222; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 8px; }
+  .play-icon { width: 32px; height: 32px; border: 1px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+
+  .glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; }
+  .glass-strong { background: rgba(255,255,255,0.06); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; }
+
+  .navbar-demo { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; margin: 20px 0; }
+  .navbar-logo { font-family: Georgia, serif; font-size: 16px; font-weight: 700; letter-spacing: -0.5px; }
+  .navbar-links { display: flex; gap: 24px; font-size: 13px; color: #888; }
+  .navbar-cta { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 8px 16px; font-size: 12px; color: #fff; }
+
+  .stat-demo { display: flex; align-items: baseline; gap: 16px; margin: 24px 0; }
+  .stat-number { font-family: Georgia, serif; font-size: 64px; font-weight: 700; letter-spacing: -3px; }
+  .stat-label { color: #444; font-size: 14px; max-width: 200px; line-height: 1.4; }
+
+  .grid-mini { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 24px; }
+  .grid-item { padding: 16px 12px; font-size: 13px; color: #999; text-align: center; }
+
+  .horizon-item { padding: 28px 24px; margin-bottom: 12px; }
+  .horizon-title { font-family: Georgia, serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
+  .horizon-desc { color: #444; font-size: 14px; line-height: 1.5; max-width: 500px; }
+  .horizon-tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #333; margin-top: 8px; }
+
+  .founder-row { display: flex; gap: 24px; margin-top: 20px; }
+  .founder { flex: 1; padding: 24px; text-align: center; }
+  .founder-photo { width: 100%; aspect-ratio: 3/4; background: rgba(255,255,255,0.02); border-radius: 12px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; color: #222; font-size: 13px; }
+  .founder-name { font-family: Georgia, serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+  .founder-role { color: #444; font-size: 13px; margin-top: 4px; }
+
+  .cta-demo { text-align: center; padding: 60px 0; }
+  .cta-demo input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px 20px; color: #fff; font-size: 15px; width: 300px; margin-right: 8px; outline: none; }
+  .cta-demo button { background: #fff; color: #000; border: none; border-radius: 8px; padding: 14px 24px; font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px; }
+
+  .note { background: #0a0a0a; border-left: 2px solid #222; padding: 12px 16px; color: #555; font-size: 13px; line-height: 1.5; margin: 16px 0; }
+
+  .tag { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #00ff88; background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.15); border-radius: 4px; padding: 3px 8px; margin-left: 8px; }
+  .tag-blue { color: #4488ff; background: rgba(68,136,255,0.08); border-color: rgba(68,136,255,0.15); }
+
+  .flow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
+  .flow-item { background: #111; border: 1px solid #1a1a1a; border-radius: 8px; padding: 10px 16px; font-size: 13px; color: #888; }
+  .flow-arrow { color: #333; font-size: 18px; }
+
+  .effects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; }
+  .effect-card { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 10px; padding: 20px; }
+  .effect-name { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .effect-desc { font-size: 12px; color: #555; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>the riverroute<br>redesign.</h1>
+  <p class="subtitle">CRED-style overhaul. Pure black, bold serif, cinematic scroll, liquid glass, background video. Updated design.</p>
+
+  <div class="divider"></div>
+
+  <!-- EFFECTS OVERVIEW -->
+  <h3>Visual Effects System</h3>
+  <div class="effects-grid">
+    <div class="effect-card">
+      <div class="effect-name">🎬 Hero Background Video</div>
+      <div class="effect-desc">Cinematic production footage (film sets, camera rigs, behind-the-scenes). Plays muted, looped, with dark overlay so text stays readable.</div>
+    </div>
+    <div class="effect-card">
+      <div class="effect-name">🧊 Liquid Glass</div>
+      <div class="effect-desc">Apple-style frosted glass on navbar, product cards, founder cards, and vertical grid items. Blur + subtle border + transparency.</div>
+    </div>
+    <div class="effect-card">
+      <div class="effect-name">📜 Parallax Scroll</div>
+      <div class="effect-desc">Elements move at different speeds on scroll. Headlines drift slower, backgrounds shift. Creates depth. Framer Motion useScroll + useTransform.</div>
+    </div>
+    <div class="effect-card">
+      <div class="effect-name">✨ Section Reveal</div>
+      <div class="effect-desc">Each section fades up from black as you scroll into it. Staggered children — headline first, then content, then details. Cinematic pacing.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- NAVBAR -->
+  <h3>Navbar — Liquid Glass</h3>
+  <div class="navbar-demo glass-strong">
+    <div class="navbar-logo">the riverroute</div>
+    <div class="navbar-links">
+      <span>industry</span>
+      <span>building</span>
+      <span>people</span>
+    </div>
+    <div class="navbar-cta">join waitlist</div>
+  </div>
+  <div class="note">Floating glass navbar. Frosted blur over the video/content behind it. Hides on scroll down, reveals on scroll up. Translucent, not opaque.</div>
+
+  <div class="divider"></div>
+
+  <!-- HERO -->
+  <h3>Section 1 — Hero + Background Video</h3>
+  <div class="section-demo hero-demo">
+    <div class="hero-video-placeholder">
+      <div class="hero-video-label">
+        <div class="play-icon">▶</div>
+        cinematic background video — film sets, camera rigs, production
+      </div>
+    </div>
+    <div class="hero-video-overlay"></div>
+    <h2>software for<br>india's storytellers.</h2>
+    <p>the tools behind the scenes of a ₹2.5 lakh crore industry. built by people who've lived it.</p>
+  </div>
+  <div class="note"><strong>Video:</strong> Muted, looped, autoplay. Dark gradient overlay (70% opacity top, 40% middle, 80% bottom). Text sits on top with full readability. Video slows/pauses as you scroll past (parallax speed). Scroll indicator at bottom.<br><br><strong>Animation:</strong> Text reveals word-by-word after a short delay. Video fades in first, then text appears over it.</div>
+
+  <div class="divider"></div>
+
+  <!-- INDUSTRY -->
+  <h3>Section 2 — The Industry <span class="tag-blue tag">parallax</span> <span class="tag">section reveal</span></h3>
+  <div class="section-demo">
+    <div class="stat-demo">
+      <div class="stat-number">₹2,50,000 Cr</div>
+      <div class="stat-label">india's media & entertainment industry. fragmented. underserved. ready.</div>
+    </div>
+    <div class="grid-mini">
+      <div class="grid-item glass">Film</div>
+      <div class="grid-item glass">OTT</div>
+      <div class="grid-item glass">Television</div>
+      <div class="grid-item glass">Music</div>
+      <div class="grid-item glass">Live Events</div>
+      <div class="grid-item glass">Animation</div>
+      <div class="grid-item glass">Gaming</div>
+      <div class="grid-item glass">Digital</div>
+    </div>
+  </div>
+  <div class="note"><strong>Parallax:</strong> The big number scrolls slower than the surrounding content — creates depth. Grid items stagger in from below.<br><strong>Glass:</strong> Vertical grid items are liquid glass cards — subtle frosted effect over the dark background.<br><strong>Reveal:</strong> Whole section fades up. Counter starts animating once visible.</div>
+
+  <div class="divider"></div>
+
+  <!-- BUILDING -->
+  <h3>Section 3 — What We're Building <span class="tag-blue tag">parallax</span> <span class="tag">glass cards</span></h3>
+  <div class="section-demo">
+    <div class="horizon-item glass" style="margin-bottom:12px;">
+      <div class="horizon-title">the vendor layer.</div>
+      <div class="horizon-desc">equipment discovery, comparison, and booking — unified for the first time.</div>
+      <div class="horizon-tag">building now</div>
+    </div>
+    <div class="horizon-item glass" style="margin-bottom:12px;">
+      <div class="horizon-title">the production layer.</div>
+      <div class="horizon-desc">budgets, schedules, call sheets — transparent, real-time, connected.</div>
+      <div class="horizon-tag">next</div>
+    </div>
+    <div class="horizon-item glass">
+      <div class="horizon-title">the people layer.</div>
+      <div class="horizon-desc">a professional network for the industry — verified, credible, useful.</div>
+      <div class="horizon-tag">horizon</div>
+    </div>
+  </div>
+  <div class="note"><strong>Glass:</strong> Each horizon card is a liquid glass panel. Slight hover glow effect.<br><strong>Reveal:</strong> Cards slide in one by one on scroll, staggered 200ms apart.<br><strong>Parallax:</strong> Section title drifts at a different rate than the cards.<br>Waitlist CTA appears after the last card with a subtle fade.</div>
+
+  <div class="divider"></div>
+
+  <!-- FOUNDERS -->
+  <h3>Section 4 — The People <span class="tag">glass cards</span> <span class="tag-blue tag">parallax</span></h3>
+  <div class="section-demo">
+    <div class="founder-row">
+      <div class="founder glass-strong">
+        <div class="founder-photo">photo</div>
+        <div class="founder-name">Varun</div>
+        <div class="founder-role">Co-founder · 10+ years in M&E</div>
+      </div>
+      <div class="founder glass-strong">
+        <div class="founder-photo">photo</div>
+        <div class="founder-name">Ria</div>
+        <div class="founder-role">Co-founder · Product & Strategy</div>
+      </div>
+    </div>
+  </div>
+  <div class="note"><strong>Glass:</strong> Strong liquid glass on founder cards — the most prominent glass effect on the page. Photos float inside the frosted panels.<br><strong>Parallax:</strong> Cards drift slightly on scroll. Photos have a subtle zoom effect on hover.<br><strong>Reveal:</strong> Left card slides from left, right card from right, meeting in the center.</div>
+
+  <div class="divider"></div>
+
+  <!-- FOOTER -->
+  <h3>Section 5 — Footer + CTA</h3>
+  <div class="section-demo cta-demo">
+    <h2 style="margin-top:0;">get early access.</h2>
+    <p style="color:#444;font-size:15px;margin-bottom:32px;">join the waitlist. we'll reach out when it's your turn.</p>
+    <div>
+      <input type="text" placeholder="your email" />
+      <button>join</button>
+    </div>
+  </div>
+  <div class="note">Input field has glass effect. White CTA button. Minimal footer below with links. Section reveals on scroll.</div>
+
+  <div class="divider"></div>
+
+  <h3>Design Principles — Updated</h3>
+  <div style="color:#555;font-size:14px;line-height:2;">
+    <strong style="color:#888;">Pure black.</strong> #000 or #0a0a0a background. No navy, no grey sections.<br>
+    <strong style="color:#888;">Bold serif.</strong> Playfair Display Black for all headlines. Inter for body.<br>
+    <strong style="color:#888;">No color accent.</strong> Black/white/grey only. Warmth from video and glass light refraction.<br>
+    <strong style="color:#888;">Liquid glass everywhere.</strong> Navbar, vertical grid, product cards, founder cards, input fields.<br>
+    <strong style="color:#888;">Cinematic video hero.</strong> Muted background video with dark overlay. Film/production footage.<br>
+    <strong style="color:#888;">Parallax depth.</strong> Headlines, stats, and cards at different scroll speeds. Creates cinematic layers.<br>
+    <strong style="color:#888;">Section reveals.</strong> Every section fades up from black. Staggered children. Nothing visible until you scroll to it.<br>
+    <strong style="color:#888;">Word-by-word text.</strong> Hero headline and key statements animate word-by-word.<br>
+    <strong style="color:#888;">Framer Motion.</strong> All animation via useScroll, useTransform, useInView, stagger.<br>
+    <strong style="color:#888;">Mobile-first.</strong> 7xl+ desktop, 4xl mobile. Glass effects degrade gracefully.<br>
+  </div>
+
+</div>
+</body>
+</html>
