@@ -49,15 +49,15 @@ export const FloatingNav = ({
           className
         )}
       >
-        <div className="glass-strong flex items-center gap-1 px-2 py-2">
+        <div className="glass-strong flex items-center gap-2 px-3 py-3">
           {/* Logo */}
-          <div className="flex items-center px-4">
-            <span className="font-display text-sm font-bold text-white">
+          <a href="#hero" className="flex items-center px-4">
+            <span className="font-display text-lg font-bold tracking-tight text-white">
               the riverroute
             </span>
-          </div>
+          </a>
 
-          <div className="h-4 w-px bg-white/10" />
+          <div className="h-5 w-px bg-white/10" />
 
           {/* Nav links */}
           <div className="flex items-center">
@@ -65,19 +65,19 @@ export const FloatingNav = ({
               <a
                 key={`link-${idx}`}
                 href={navItem.link}
-                className="rounded-full px-3.5 py-2 font-body text-[13px] font-medium text-white/50 transition-colors hover:text-white"
+                className="rounded-full px-4 py-2.5 font-body text-sm font-medium text-white/50 transition-colors hover:text-white"
               >
                 {navItem.name}
               </a>
             ))}
           </div>
 
-          <div className="h-4 w-px bg-white/10" />
+          <div className="h-5 w-px bg-white/10" />
 
           {/* CTA */}
           <a
             href="#footer"
-            className="rounded-full bg-white/10 border border-white/15 px-4 py-2 font-body text-[13px] font-medium text-white transition-all hover:bg-white/15"
+            className="rounded-full bg-white/10 border border-white/15 px-5 py-2.5 font-body text-sm font-medium text-white transition-all hover:bg-white/15"
           >
             Join Waitlist
           </a>
