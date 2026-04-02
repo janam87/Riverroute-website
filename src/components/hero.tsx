@@ -4,9 +4,7 @@ import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
-const headline = "built by the industry. for the industry.";
-const subtext =
-  "India's M&E industry is one of the largest in the world. The people who run it deserve software that actually understands them.";
+const tagline = "Built for Crew, by Crew — finally, a software that works the way you do!!";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,28 +38,28 @@ export function Hero() {
       </motion.div>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/65" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
 
       {/* Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 flex h-full flex-col items-start justify-center px-6 md:px-16 lg:px-24 max-w-5xl"
+        className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6 md:px-16 lg:px-24"
       >
         <TextGenerateEffect
-          words={headline}
-          className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl"
-          duration={0.4}
-          staggerDelay={0.08}
+          words="the riverroute"
+          className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl xl:text-9xl"
+          duration={0.5}
+          staggerDelay={0.12}
         />
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="mt-8 max-w-lg font-body text-base text-white/50 md:text-lg leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="mt-8 max-w-2xl font-body text-lg text-white/50 md:text-xl leading-relaxed"
         >
-          {subtext}
+          {tagline}
         </motion.p>
       </motion.div>
 
