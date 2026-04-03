@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
-import { WaitlistForm } from "@/components/waitlist-form";
+
 
 const layers = [
   {
