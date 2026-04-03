@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
 import { WaitlistForm } from "@/components/waitlist-form";
 
@@ -33,6 +34,18 @@ export function Footer() {
             </span>
 
             <div className="flex gap-8 font-body text-xs text-white/30">
+              <a href="#industry" className="transition-colors hover:text-white/60">
+                The Industry
+              </a>
+              <a href="#building" className="transition-colors hover:text-white/60">
+                Products
+              </a>
+              <a href="#serve" className="transition-colors hover:text-white/60">
+                Who We Serve
+              </a>
+              <a href="#founders" className="transition-colors hover:text-white/60">
+                Founders
+              </a>
               <a
                 href="https://www.linkedin.com/company/theriverroute"
                 target="_blank"
@@ -41,11 +54,9 @@ export function Footer() {
               >
                 LinkedIn
               </a>
-              <a href="/careers" className="transition-colors hover:text-white/60">
+              <Link href="/careers" className="transition-colors hover:text-white/60">
                 Careers
-              </a>
-              <span>Privacy</span>
-              <span>Terms</span>
+              </Link>
             </div>
 
             <span className="font-body text-xs text-white/20">
