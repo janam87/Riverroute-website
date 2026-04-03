@@ -78,9 +78,13 @@ export function Industry() {
       <div className="px-6 md:px-16 lg:px-24 py-16 md:py-20">
         <div className="mx-auto max-w-5xl">
           <SectionRevealChild index={1} staggerDelay={0.3}>
-            <p className="max-w-3xl text-left font-display text-lg text-white/60 md:text-xl lg:text-2xl leading-relaxed font-medium">
-              All of these verticals run on People, Processes and Relationships.
-              Almost none of it has a system tailor made for them.
+            <p className="max-w-3xl text-left font-body text-base text-white/30 md:text-lg leading-relaxed italic">
+              &ldquo;Crores of rupees worth of equipment leaves warehouses every day.
+              Every single piece of it tracked on WhatsApp and hope.&rdquo;
+            </p>
+            <p className="max-w-3xl text-left font-display text-lg text-white/60 md:text-xl lg:text-2xl leading-relaxed font-medium mt-8">
+              The people who run this industry deserve software that actually understands them.
+              We are changing that. From the inside.
             </p>
           </SectionRevealChild>
         </div>

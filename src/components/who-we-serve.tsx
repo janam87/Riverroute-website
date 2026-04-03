@@ -11,9 +11,12 @@ export function WhoWeServe() {
       <div className="mx-auto max-w-5xl">
         <SectionReveal>
           <ParallaxElement speed={0.7}>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-16">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
               Built For The Industry.
             </h2>
+            <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
+              From the biggest studios to the smallest vendor — if you work in Indian M&amp;E, we are building for you.
+            </p>
           </ParallaxElement>
         </SectionReveal>
 

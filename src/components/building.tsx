@@ -7,25 +7,34 @@ import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
 
 const layers = [
   {
-    title: "the vendor layer.",
+    horizon: "01",
+    status: "In active development",
+    title: "The Vendor",
     slug: "vendor",
-    description: "Equipment tracking for rental vendors — where it is, who has it, when it returns.",
+    quote: "Crores of rupees worth of equipment leaves warehouses every day. Every single piece of it tracked on WhatsApp and hope.",
+    description: "Complete clarity over every piece of equipment — where it is, who has it, when it returns.",
     image: "/images/vendor-camera.png",
     glow1: "#FF0080",
     glow2: "#FF8C00",
   },
   {
-    title: "the production layer.",
+    horizon: "02",
+    status: "In development",
+    title: "The Production",
     slug: "production",
-    description: "Budgets, schedules, call sheets — transparent, real-time, connected.",
+    quote: "A film passes through hundreds of hands, decisions, and stages before it reaches an audience. Most of that journey is invisible.",
+    description: "Transparency and control over how films are produced, tracked, and managed.",
     image: "/images/production-clipboard.png",
     glow1: "#8E2DE2",
     glow2: "#FF0099",
   },
   {
-    title: "the people layer.",
+    horizon: "03",
+    status: "On the roadmap",
+    title: "The People",
     slug: "people",
-    description: "A professional network for crew — verified, credible, connected.",
+    quote: "India\u2019s M&E industry is one of the largest in the world. Yet a director in Chennai has no way to find a focus puller in Kolkata.",
+    description: "One living network connecting the entire nation\u2019s film and entertainment industry.",
     image: "/images/people-phone.png",
     glow1: "#00F260",
     glow2: "#0575E6",
@@ -41,7 +50,8 @@ export function Building() {
             Introducing The Riverroute OS.
           </h2>
           <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
-            A tech solution that is long awaited — diversified for Vendors, Production, and Professionals. Each one, uniquely mentored by leading professional experts.
+            We are building the software this industry has always deserved.
+            Designed for the people who keep it running — built with their input, not in spite of it.
           </p>
         </SectionReveal>
 
@@ -52,9 +62,17 @@ export function Building() {
                 <div className="relative rounded-2xl border border-white/10 overflow-hidden h-full flex flex-col bg-black transition-all duration-300 group-hover:border-white/20 group-hover:-translate-y-1">
                   {/* Content */}
                   <div className="p-7 relative z-10">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-display text-xs font-bold text-white/20">{layer.horizon}</span>
+                      <span className="font-body text-[10px] text-white/30 uppercase tracking-wider">{layer.status}</span>
+                    </div>
                     <h3 className="font-display text-2xl font-bold tracking-tight text-white leading-tight">
                       {layer.title}
                     </h3>
+
+                    <p className="font-body text-xs text-white/25 leading-relaxed mt-3 italic">
+                      &ldquo;{layer.quote}&rdquo;
+                    </p>
 
                     <p className="font-body text-sm text-white/40 leading-relaxed mt-3">
                       {layer.description}

@@ -47,9 +47,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-8 max-w-2xl font-body text-xl text-white/50 md:text-2xl leading-relaxed"
+            className="mt-8 max-w-2xl font-body text-lg text-white/40 md:text-xl leading-relaxed"
           >
-            Built by the Crew, for the Crew.
+            Built by the people who&apos;ve lived it.
           </motion.p>
         </motion.div>
       </WavyBackground>
