@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { GlassCard } from "@/components/glass-card";
 import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
 import { ParallaxElement } from "@/components/parallax-section";
@@ -16,7 +17,7 @@ export function Building() {
               what we&apos;re building.
             </h2>
             <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
-              We are building the software this industry has always deserved — designed for the people who keep it running, with their input, not in spite of it.
+              A tech solution that is long awaited — diversified for Vendors, Production, and Professionals. Each one, uniquely mentored by leading professional experts. Designed to address the pain points and gaps for the Indian M&amp;E industry.
             </p>
           </ParallaxElement>
         </SectionReveal>
@@ -39,6 +40,12 @@ export function Building() {
                 <p className="font-body text-sm text-white/50 leading-relaxed max-w-xl">
                   {horizon.description}
                 </p>
+                <Link
+                  href={`/products/${horizon.slug}`}
+                  className="inline-block mt-4 font-body text-sm text-white/30 hover:text-white/60 transition-colors"
+                >
+                  learn more &rarr;
+                </Link>
               </GlassCard>
             </SectionRevealChild>
           ))}

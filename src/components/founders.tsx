@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { GlassCard } from "@/components/glass-card";
@@ -16,12 +17,9 @@ export function Founders() {
       <div className="mx-auto max-w-5xl">
         <SectionReveal>
           <ParallaxElement speed={0.7}>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
-              the people.
+            <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-16">
+              meet the crew.
             </h2>
-            <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
-              Founded by two professionals with over three decades inside Indian film and television. This is not a pivot. It is a culmination.
-            </p>
           </ParallaxElement>
         </SectionReveal>
 
@@ -74,6 +72,15 @@ export function Founders() {
               </ParallaxElement>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/founders"
+            className="font-body text-sm text-white/30 hover:text-white/60 transition-colors"
+          >
+            meet the founders &rarr;
+          </Link>
         </div>
       </div>
     </section>
