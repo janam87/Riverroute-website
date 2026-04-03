@@ -16,34 +16,47 @@ export const TextGenerateEffect = ({
   duration?: number;
   staggerDelay?: number;
 }) => {
-  const wordsArray = words.split(" ");
+  // Pre-compute lines and global word indices to avoid mutable state during render
+  const lines = words.split("\n");
+  let offset = 0;
+  const parsed = lines.map((line) => {
+    const lineWords = line.split(" ");
+    const withIndices = lineWords.map((word, i) => ({
+      word,
+      globalIdx: offset + i,
+    }));
+    offset += lineWords.length;
+    return withIndices;
+  });
 
   return (
     <div className={cn("font-bold", className)}>
       <div className="leading-snug tracking-wide">
-        <div>
-          {wordsArray.map((word, idx) => (
-            <motion.span
-              key={word + idx}
-              initial={{
-                opacity: 0,
-                filter: filter ? "blur(8px)" : "none",
-              }}
-              animate={{
-                opacity: 1,
-                filter: filter ? "blur(0px)" : "none",
-              }}
-              transition={{
-                duration: duration,
-                delay: idx * staggerDelay,
-                ease: "easeOut",
-              }}
-              className="inline-block"
-            >
-              {word}&nbsp;
-            </motion.span>
-          ))}
-        </div>
+        {parsed.map((lineWords, lineIdx) => (
+          <div key={lineIdx}>
+            {lineWords.map(({ word, globalIdx }) => (
+              <motion.span
+                key={`${globalIdx}-${word}`}
+                initial={{
+                  opacity: 0,
+                  filter: filter ? "blur(8px)" : "none",
+                }}
+                animate={{
+                  opacity: 1,
+                  filter: filter ? "blur(0px)" : "none",
+                }}
+                transition={{
+                  duration: duration,
+                  delay: globalIdx * staggerDelay,
+                  ease: "easeOut",
+                }}
+                className="inline-block"
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

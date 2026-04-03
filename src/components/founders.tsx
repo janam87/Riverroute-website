@@ -13,12 +13,12 @@ export function Founders() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="people" className="relative bg-black px-6 py-32 md:px-16 lg:px-24">
+    <section id="founders" className="relative bg-black px-6 py-24 md:px-16 lg:px-24">
       <div className="mx-auto max-w-5xl">
         <SectionReveal>
           <ParallaxElement speed={0.7}>
             <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-16">
-              meet the crew.
+              Built By Insiders.
             </h2>
           </ParallaxElement>
         </SectionReveal>
@@ -37,37 +37,16 @@ export function Founders() {
             >
               <ParallaxElement speed={0.8}>
                 <GlassCard variant="strong" className="p-6">
-                  {/* Photo placeholder */}
-                  <div className="mx-auto mb-6 aspect-[3/4] max-w-[200px] overflow-hidden rounded-xl bg-white/[0.02]">
-                    <div className="h-full w-full bg-gradient-to-b from-white/[0.03] to-transparent transition-transform duration-300 hover:scale-[1.03]" />
-                  </div>
-
-                  <div className="text-center">
-                    <h3 className="font-display text-2xl font-bold text-white">
-                      {founder.fullName}
-                    </h3>
-                    <p className="mt-1 font-body text-sm text-white/40">
-                      {founder.title} · {founder.role}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 h-px w-full bg-white/[0.06]" />
-
-                  <p className="mt-4 font-body text-sm text-white/40 leading-[1.7]">
-                    {founder.bio}
+                  <h3 className="font-display text-xl font-bold text-white">
+                    {founder.fullName}
+                  </h3>
+                  <p className="mt-1 font-body text-xs text-white/40">
+                    {founder.title} · {founder.role}
                   </p>
 
-                  {/* Credentials */}
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {founder.credentials.map((cred) => (
-                      <span
-                        key={cred}
-                        className="font-body text-[11px] text-white/20 border border-white/[0.06] rounded-full px-3 py-1"
-                      >
-                        {cred}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="mt-3 font-body text-sm text-white/40 leading-relaxed line-clamp-3">
+                    {founder.bio}
+                  </p>
                 </GlassCard>
               </ParallaxElement>
             </motion.div>

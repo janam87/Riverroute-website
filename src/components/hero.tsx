@@ -1,10 +1,8 @@
 "use client";
 
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-
-const tagline = "Built for Crew, by Crew — finally, a software that works the way you do!!";
+import { WavyBackground } from "@/components/ui/wavy-background";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,58 +15,51 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={ref} id="hero" className="relative h-screen overflow-hidden bg-black">
-      {/* Fallback gradient — behind video */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-black to-[#111]" />
-
-      {/* Background video */}
-      <motion.div
-        style={{ y: videoY }}
-        className="absolute inset-0"
+    <section ref={ref} id="hero" className="relative overflow-hidden bg-black">
+      <WavyBackground
+        containerClassName="h-screen"
+        className="flex flex-col items-center justify-center text-center px-6 md:px-16 lg:px-24"
+        backgroundFill="black"
+        colors={["#38bdf8", "#6366f1", "#2dd4bf", "#818cf8", "#34d399"]}
+        waveWidth={60}
+        blur={8}
+        speed="slow"
+        waveOpacity={0.5}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="h-full w-full object-cover"
-        >
-          <source src="/video/hero.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
+        <motion.div style={{ opacity }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl"
+          >
+            The first OS for
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="font-display text-3xl font-bold leading-[1.15] tracking-tight text-white md:text-5xl lg:text-6xl mt-1"
+          >
+            Media &amp; Entertainment.
+          </motion.h1>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/65" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="mt-8 max-w-2xl font-body text-xl text-white/50 md:text-2xl leading-relaxed"
+          >
+            Built by the Crew, for the Crew.
+          </motion.p>
+        </motion.div>
+      </WavyBackground>
 
-      {/* Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 flex h-full flex-col items-center justify-center text-center px-6 md:px-16 lg:px-24"
-      >
-        <TextGenerateEffect
-          words="the riverroute"
-          className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl xl:text-9xl"
-          duration={0.5}
-          staggerDelay={0.12}
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-8 max-w-2xl font-body text-lg text-white/50 md:text-xl leading-relaxed"
-        >
-          {tagline}
-        </motion.p>
-      </motion.div>
-
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
@@ -81,9 +72,6 @@ export function Hero() {
           <div className="w-4 h-4 border-b border-r border-white/20 rotate-45 -mt-1" />
         </motion.div>
       </motion.div>
-
-      {/* Bottom fade to black */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
     </section>
   );
 }
