@@ -7,7 +7,7 @@ import { SectionReveal } from "@/components/section-reveal";
 import { verticals } from "@/data/verticals";
 
 const storyText =
-  "An industry worth lakhs of crores. Millions of people. Thousands of productions every year. Equipment worth crores leaves warehouses every single day — tracked on WhatsApp and hope. Budgets are managed on spreadsheets. Crew is hired through phone calls and personal favours. The people who power this industry deserve software that actually understands how it works. We are building that. From the inside.";
+  "India\u2019s Media and Entertainment industry is worth lakhs of crores of rupees. Millions of people work in it. Thousands of productions happen every year. Equipment worth crores is used every single day. And nearly all of it is managed on WhatsApp, spreadsheets, phone calls, and broken software that was never built for this industry. It\u2019s time for that to change. The people who power this industry deserve a system that actually understands how it works. We are building that system. From the inside.";
 
 const words = storyText.split(" ");
 
