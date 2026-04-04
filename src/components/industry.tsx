@@ -45,8 +45,8 @@ function ScrollWord({
   total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
-  const start = 0.15 + (index / total) * 0.65;
-  const end = start + 0.65 / total;
+  const start = 0.05 + (index / total) * 0.45;
+  const end = start + 0.45 / total;
   const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
 
   return (
