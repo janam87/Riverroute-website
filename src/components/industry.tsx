@@ -68,7 +68,7 @@ export function Industry() {
       <div className="min-h-[250vh]">
         <div className="sticky top-0 min-h-screen overflow-hidden flex flex-col justify-center">
           <div className="px-6 md:px-16 lg:px-24 py-20">
-            <div className="mx-auto max-w-5xl w-full">
+            <div className="mx-auto max-w-3xl w-full">
               {/* Heading + stat */}
               <SectionReveal>
                 <h2 className="font-display text-xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl leading-snug">
@@ -99,7 +99,7 @@ export function Industry() {
 
           {/* Marquee cards inside a bordered container */}
           <div className="mx-6 md:mx-16 lg:mx-24 mb-12">
-            <div className="mx-auto max-w-5xl">
+            <div className="mx-auto max-w-3xl">
               <div className="rounded-2xl border border-white/10 overflow-hidden py-4">
                 {/* Row 1 */}
                 <div className="overflow-hidden">
@@ -124,7 +124,7 @@ export function Industry() {
           {/* CRED-style scroll reveal text — big, bold, display */}
           <div className="px-6 md:px-16 lg:px-24 pb-20">
             <div className="mx-auto max-w-3xl">
-              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-tight" style={{ wordSpacing: "0.08em" }}>
+              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-[1.6] tracking-tight" style={{ wordSpacing: "0.08em" }}>
                 {words.map((word, i) => (
                   <ScrollWord
                     key={i}
