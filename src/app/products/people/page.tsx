@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { GlassCard } from "@/components/glass-card";
 import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
-import { WaitlistForm } from "@/components/waitlist-form";
+import Link from "next/link";
 import { horizons } from "@/data/horizons";
 
 const horizon = horizons[2]; // people
@@ -14,8 +14,17 @@ export default function PeoplePage() {
     <main className="bg-black min-h-screen">
       <Navbar />
 
+      {/* Back button */}
+      <div className="px-6 pt-28 md:px-16 lg:px-24">
+        <div className="mx-auto max-w-5xl">
+          <Link href="/" className="inline-flex items-center gap-2 font-body text-sm text-white/40 hover:text-white/70 transition-colors">
+            &larr; Back to Home
+          </Link>
+        </div>
+      </div>
+
       {/* Hero */}
-      <section className="px-6 pt-48 pb-32 md:px-16 lg:px-24">
+      <section className="px-6 pt-12 pb-32 md:px-16 lg:px-24">
         <div className="mx-auto max-w-5xl">
           <SectionReveal>
             {/* Status badge */}
@@ -78,25 +87,6 @@ export default function PeoplePage() {
               </SectionRevealChild>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-6 py-32 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-5xl">
-          <SectionReveal>
-            <div className="text-center">
-              <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
-                get early access.
-              </h2>
-              <p className="font-body text-sm text-white/40 mb-10">
-                join the waitlist. we&apos;ll reach out when it&apos;s your turn.
-              </p>
-              <div className="flex justify-center">
-                <WaitlistForm />
-              </div>
-            </div>
-          </SectionReveal>
         </div>
       </section>
 
