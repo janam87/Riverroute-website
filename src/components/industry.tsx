@@ -61,7 +61,7 @@ export function Industry() {
   const textRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: textRef,
-    offset: ["start end", "end center"],
+    offset: ["start 0.4", "end 0.4"],
   });
 
   return (
