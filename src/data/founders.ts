@@ -74,7 +74,7 @@ export const founders: Founder[] = [
       "Good Co. (Goodbye)",
       "Dharma Productions (Sarzameen)",
     ],
-    image: "/images/placeholder-varun.webp",
+    image: "/images/varun.jpeg",
   },
   {
     name: "Ria",
