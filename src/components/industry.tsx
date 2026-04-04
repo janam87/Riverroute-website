@@ -45,8 +45,8 @@ function ScrollWord({
   total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
-  const start = 0.3 + (index / total) * 0.5;
-  const end = start + 0.5 / total;
+  const start = 0.15 + (index / total) * 0.7;
+  const end = start + 0.7 / total;
   const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
 
   return (
@@ -65,7 +65,7 @@ export function Industry() {
 
   return (
     <section ref={sectionRef} id="industry" className="relative bg-black">
-      <div className="min-h-[300vh]">
+      <div className="min-h-[200vh]">
         <div className="sticky top-0 min-h-screen overflow-hidden flex flex-col justify-center">
           <div className="px-6 md:px-16 lg:px-24 py-20">
             <div className="mx-auto max-w-3xl w-full">
