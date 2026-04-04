@@ -10,8 +10,8 @@ const layers = [
     horizon: "01",
     status: "In active development",
     title: "The Vendor",
+    subtitle: "Layer",
     slug: "vendor",
-    quote: "Crores of rupees worth of equipment leaves warehouses every day. Every single piece of it tracked on WhatsApp and hope.",
     description: "Complete clarity over every piece of equipment — where it is, who has it, when it returns.",
     image: "/images/vendor-camera.png",
     glow1: "#FF0080",
@@ -21,8 +21,8 @@ const layers = [
     horizon: "02",
     status: "In development",
     title: "The Production",
+    subtitle: "Layer",
     slug: "production",
-    quote: "A film passes through hundreds of hands, decisions, and stages before it reaches an audience. Most of that journey is invisible.",
     description: "Transparency and control over how films are produced, tracked, and managed.",
     image: "/images/production-clipboard.png",
     glow1: "#8E2DE2",
@@ -32,8 +32,8 @@ const layers = [
     horizon: "03",
     status: "On the roadmap",
     title: "The People",
+    subtitle: "Layer",
     slug: "people",
-    quote: "India\u2019s M&E industry is one of the largest in the world. Yet a director in Chennai has no way to find a focus puller in Kolkata.",
     description: "One living network connecting the entire nation\u2019s film and entertainment industry.",
     image: "/images/people-phone.png",
     glow1: "#00F260",
@@ -51,7 +51,7 @@ export function Building() {
           </h2>
           <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
             We are building the software this industry has always deserved.
-            Designed for the people who keep it running — built with their input, not in spite of it.
+            Designed for the people who keep it running.
           </p>
         </SectionReveal>
 
@@ -69,9 +69,8 @@ export function Building() {
                     <h3 className="font-display text-2xl font-bold tracking-tight text-white leading-tight">
                       {layer.title}
                     </h3>
-
-                    <p className="font-body text-xs text-white/25 leading-relaxed mt-3 italic">
-                      &ldquo;{layer.quote}&rdquo;
+                    <p className="font-body text-xs text-white/30 uppercase tracking-wider mt-1">
+                      {layer.subtitle}
                     </p>
 
                     <p className="font-body text-sm text-white/40 leading-relaxed mt-3">

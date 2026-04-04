@@ -22,8 +22,11 @@ export function Footer() {
         <div className="mx-auto max-w-5xl px-6 md:px-16 lg:px-24">
           <SectionReveal>
             <div className="relative z-10 text-center">
+              <p className="font-body text-base text-white/40 mb-4">
+                The first OS for Media &amp; Entertainment.
+              </p>
               <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
-                get early access.
+                Get Early Access.
               </h2>
               <p className="font-body text-sm text-muted mb-10">
                 join the waitlist. we&apos;ll reach out when it&apos;s your turn.

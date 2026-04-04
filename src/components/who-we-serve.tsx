@@ -27,7 +27,7 @@ export function WhoWeServe() {
                 <h3 className="font-display text-sm font-bold text-white min-h-[40px]">
                   {audience.title}
                 </h3>
-                <p className="font-body text-xs text-white/40 leading-relaxed mt-2 line-clamp-2">
+                <p className="font-body text-xs text-white/40 leading-relaxed mt-2">
                   {audience.description}
                 </p>
               </GlassCard>

@@ -79,8 +79,7 @@ export function Industry() {
         <div className="mx-auto max-w-5xl">
           <SectionRevealChild index={1} staggerDelay={0.3}>
             <p className="max-w-3xl text-left font-body text-base text-white/30 md:text-lg leading-relaxed italic">
-              &ldquo;Crores of rupees worth of equipment leaves warehouses every day.
-              Every single piece of it tracked on WhatsApp and hope.&rdquo;
+              &ldquo;An industry worth lakhs of crores — still run on phone calls, spreadsheets, and personal favours.&rdquo;
             </p>
             <p className="max-w-3xl text-left font-display text-lg text-white/60 md:text-xl lg:text-2xl leading-relaxed font-medium mt-8">
               The people who run this industry deserve software that actually understands them.
