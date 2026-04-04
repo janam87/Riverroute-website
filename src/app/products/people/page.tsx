@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { GlassCard } from "@/components/glass-card";
+import { ScrollRevealText } from "@/components/scroll-reveal-text";
 import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
 import Link from "next/link";
 import { horizons } from "@/data/horizons";
@@ -49,18 +50,8 @@ export default function PeoplePage() {
         </div>
       </section>
 
-      {/* Description */}
-      <section className="px-6 py-24 md:px-16 lg:px-24">
-        <div className="mx-auto max-w-5xl">
-          <SectionReveal>
-            <GlassCard variant="strong" className="p-8 md:p-12">
-              <p className="font-body text-base text-white/70 leading-relaxed md:text-lg lg:text-xl">
-                {horizon.longDescription}
-              </p>
-            </GlassCard>
-          </SectionReveal>
-        </div>
-      </section>
+      {/* Description — scroll reveal */}
+      <ScrollRevealText text={horizon.longDescription} />
 
       {/* Features */}
       <section className="px-6 py-24 md:px-16 lg:px-24">
