@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal, SectionRevealChild } from "@/components/section-reveal";
 
@@ -82,17 +81,6 @@ export function Building() {
                         learn more <span className="text-lg">&rarr;</span>
                       </span>
                     </div>
-                  </div>
-
-                  {/* Product image */}
-                  <div className="relative h-56 flex items-end justify-center z-10 px-6">
-                    <Image
-                      src={layer.image}
-                      alt={layer.title}
-                      width={200}
-                      height={200}
-                      className="object-contain max-h-48 drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
-                    />
                   </div>
 
                   {/* Ambient glow — main */}
