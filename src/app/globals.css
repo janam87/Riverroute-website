@@ -82,3 +82,29 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+@keyframes marquee-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes marquee-slow-reverse {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee-slow 25s linear infinite;
+}
+
+.animate-marquee-slow-reverse {
+  animation: marquee-slow-reverse 25s linear infinite;
+}
