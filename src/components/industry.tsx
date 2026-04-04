@@ -65,7 +65,7 @@ export function Industry() {
 
   return (
     <section ref={sectionRef} id="industry" className="relative bg-black">
-      <div className="min-h-[250vh]">
+      <div className="min-h-[300vh]">
         <div className="sticky top-0 min-h-screen overflow-hidden flex flex-col justify-center">
           <div className="px-6 md:px-16 lg:px-24 py-20">
             <div className="mx-auto max-w-3xl w-full">
@@ -124,7 +124,7 @@ export function Industry() {
           {/* CRED-style scroll reveal text — big, bold, display */}
           <div className="px-6 md:px-16 lg:px-24 pb-20">
             <div className="mx-auto max-w-3xl">
-              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-[1.6] tracking-tight" style={{ wordSpacing: "0.08em" }}>
+              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-[2] tracking-tight" style={{ wordSpacing: "0.08em" }}>
                 {words.map((word, i) => (
                   <ScrollWord
                     key={i}
