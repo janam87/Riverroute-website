@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { founders } from "@/data/founders";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -41,10 +42,16 @@ export default function FoundersPage() {
                 <GlassCard variant="strong" className="overflow-hidden">
                   {/* Top section: photo + identity */}
                   <div className="flex flex-col gap-8 p-8 sm:flex-row sm:items-start md:p-10">
-                    {/* Photo placeholder */}
+                    {/* Photo */}
                     <div className="shrink-0 mx-auto sm:mx-0">
                       <div className="w-36 aspect-[3/4] overflow-hidden rounded-xl bg-white/[0.02]">
-                        <div className="h-full w-full bg-gradient-to-b from-white/[0.05] to-transparent" />
+                        <Image
+                          src={founder.image}
+                          alt={founder.fullName}
+                          width={144}
+                          height={192}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
 
