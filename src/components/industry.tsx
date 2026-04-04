@@ -123,8 +123,8 @@ export function Industry() {
 
           {/* CRED-style scroll reveal text — big, bold, display */}
           <div className="px-6 md:px-16 lg:px-24 pb-20">
-            <div className="mx-auto max-w-5xl">
-              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+            <div className="mx-auto max-w-3xl">
+              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold leading-[1.4] tracking-tight" style={{ wordSpacing: "0.08em" }}>
                 {words.map((word, i) => (
                   <ScrollWord
                     key={i}
