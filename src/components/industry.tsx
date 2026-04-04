@@ -45,8 +45,9 @@ function ScrollWord({
   total: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
 }) {
-  const start = 0.15 + (index / total) * 0.7;
-  const end = start + 0.7 / total;
+  // Spread words evenly across 0 to 1 of the text container's scroll
+  const start = (index / total) * 0.85;
+  const end = start + 0.85 / total;
   const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
 
   return (
@@ -57,86 +58,83 @@ function ScrollWord({
 }
 
 export function Industry() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
+    target: textRef,
+    offset: ["start end", "end center"],
   });
 
   return (
-    <section ref={sectionRef} id="industry" className="relative bg-black">
-      <div className="min-h-[200vh]">
-        <div className="sticky top-0 min-h-screen overflow-hidden flex flex-col justify-center">
-          <div className="px-6 md:px-16 lg:px-24 py-20">
-            <div className="mx-auto max-w-3xl w-full">
-              {/* Heading + stat */}
-              <SectionReveal>
-                <h2 className="font-display text-xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl leading-snug">
-                  <span className="block">India&apos;s Media and Entertainment industry</span>
-                  <span className="block">is one of the largest in the world.</span>
-                </h2>
-              </SectionReveal>
+    <section id="industry" className="relative bg-black">
+      {/* Part 1: Heading + stat + cards — normal scroll */}
+      <div className="px-6 md:px-16 lg:px-24 py-20 md:py-28">
+        <div className="mx-auto max-w-3xl w-full">
+          <SectionReveal>
+            <h2 className="font-display text-xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl leading-snug">
+              <span className="block">India&apos;s Media and Entertainment industry</span>
+              <span className="block">is one of the largest in the world.</span>
+            </h2>
+          </SectionReveal>
 
-              <SectionReveal>
-                <div className="mt-6">
-                  <Counter
-                    target={250000}
-                    prefix="₹"
-                    suffix=" Cr"
-                    duration={2}
-                    className="font-display text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl"
-                  />
-                </div>
-                <p className="font-body text-sm text-white/30 mt-1">
-                  India&apos;s M&amp;E sector in 2024
-                </p>
-                <p className="font-body text-[11px] text-white/15">
-                  Source: FICCI-EY 2024
-                </p>
-              </SectionReveal>
+          <SectionReveal>
+            <div className="mt-6">
+              <Counter
+                target={250000}
+                prefix="₹"
+                suffix=" Cr"
+                duration={2}
+                className="font-display text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl"
+              />
             </div>
-          </div>
+            <p className="font-body text-sm text-white/30 mt-1">
+              India&apos;s M&amp;E sector in 2024
+            </p>
+            <p className="font-body text-[11px] text-white/15">
+              Source: FICCI-EY 2024
+            </p>
+          </SectionReveal>
+        </div>
+      </div>
 
-          {/* Marquee cards inside a bordered container */}
-          <div className="mx-6 md:mx-16 lg:mx-24 mb-12">
-            <div className="mx-auto max-w-3xl">
-              <div className="rounded-2xl border border-white/10 overflow-hidden py-4">
-                {/* Row 1 */}
-                <div className="overflow-hidden">
-                  <div className="flex gap-3 animate-marquee-slow">
-                    {row1Doubled.map((v, idx) => (
-                      <VerticalCard key={`r1-${idx}`} vertical={v} />
-                    ))}
-                  </div>
-                </div>
-                {/* Row 2 */}
-                <div className="overflow-hidden mt-2">
-                  <div className="flex gap-3 animate-marquee-slow-reverse">
-                    {row2Doubled.map((v, idx) => (
-                      <VerticalCard key={`r2-${idx}`} vertical={v} />
-                    ))}
-                  </div>
-                </div>
+      {/* Marquee cards */}
+      <div className="mx-6 md:mx-16 lg:mx-24 mb-16">
+        <div className="mx-auto max-w-3xl">
+          <div className="rounded-2xl border border-white/10 overflow-hidden py-4">
+            <div className="overflow-hidden">
+              <div className="flex gap-3 animate-marquee-slow">
+                {row1Doubled.map((v, idx) => (
+                  <VerticalCard key={`r1-${idx}`} vertical={v} />
+                ))}
+              </div>
+            </div>
+            <div className="overflow-hidden mt-2">
+              <div className="flex gap-3 animate-marquee-slow-reverse">
+                {row2Doubled.map((v, idx) => (
+                  <VerticalCard key={`r2-${idx}`} vertical={v} />
+                ))}
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* CRED-style scroll reveal text — big, bold, display */}
-          <div className="px-6 md:px-16 lg:px-24 pb-20">
-            <div className="mx-auto max-w-3xl">
-              <p className="font-display text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight" style={{ lineHeight: "2", wordSpacing: "0.12em" }}>
-                {words.map((word, i) => (
-                  <ScrollWord
-                    key={i}
-                    word={word}
-                    index={i}
-                    total={words.length}
-                    scrollYProgress={scrollYProgress}
-                  />
-                ))}
-              </p>
-            </div>
-          </div>
+      {/* Part 2: Scroll-reveal text — tracked independently */}
+      <div ref={textRef} className="px-6 md:px-16 lg:px-24 py-20 md:py-32">
+        <div className="mx-auto max-w-3xl">
+          <p
+            className="font-display text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight"
+            style={{ lineHeight: "2", wordSpacing: "0.12em" }}
+          >
+            {words.map((word, i) => (
+              <ScrollWord
+                key={i}
+                word={word}
+                index={i}
+                total={words.length}
+                scrollYProgress={scrollYProgress}
+              />
+            ))}
+          </p>
         </div>
       </div>
     </section>
