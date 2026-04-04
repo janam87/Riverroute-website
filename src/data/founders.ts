@@ -125,6 +125,6 @@ export const founders: Founder[] = [
       "Class of 83 (Red Chillies)",
       "Saanvi Nayak Films",
     ],
-    image: "/images/placeholder-ria.webp",
+    image: "/images/ria.png",
   },
 ];

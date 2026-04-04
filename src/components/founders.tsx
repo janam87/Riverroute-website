@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
@@ -40,17 +41,27 @@ export function Founders() {
               transition={{ duration: 0.6, ease: "easeOut", delay: idx * 0.15 }}
             >
               <ParallaxElement speed={0.8}>
-                <GlassCard variant="strong" className="p-6">
-                  <h3 className="font-display text-xl font-bold text-white">
-                    {founder.fullName}
-                  </h3>
-                  <p className="mt-1 font-body text-xs text-white/40">
-                    {founder.title} · {founder.role}
-                  </p>
-
-                  <p className="mt-3 font-body text-sm text-white/40 leading-relaxed line-clamp-3">
-                    {founder.bio}
-                  </p>
+                <GlassCard variant="strong" className="p-6 flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-full overflow-hidden bg-white/5">
+                    <Image
+                      src={founder.image}
+                      alt={founder.fullName}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-display text-xl font-bold text-white">
+                      {founder.fullName}
+                    </h3>
+                    <p className="mt-1 font-body text-xs text-white/40">
+                      {founder.title} · {founder.role}
+                    </p>
+                    <p className="mt-3 font-body text-sm text-white/40 leading-relaxed line-clamp-3">
+                      {founder.bio}
+                    </p>
+                  </div>
                 </GlassCard>
               </ParallaxElement>
             </motion.div>
