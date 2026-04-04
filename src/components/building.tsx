@@ -48,9 +48,8 @@ export function Building() {
           <h2 className="font-display text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl mb-4">
             Introducing The Riverroute OS.
           </h2>
-          <p className="font-body text-base text-white/40 leading-relaxed max-w-2xl mb-16">
-            We are building the software this industry has always deserved.
-            Designed for the people who keep it running.
+          <p className="font-body text-base text-white/40 leading-relaxed mb-16">
+            A system that is long awaited — diversified for Vendors, Production and Professionals. Each one, uniquely mentored by leading professional experts. Designed to address the pain points and gaps for the Indian M&amp;E Industry dynamics.
           </p>
         </SectionReveal>
 
